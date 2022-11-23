@@ -1,6 +1,5 @@
-# Include ./shared.psakefile.ps1
-
 Properties {
+  $RepositoryName='Lorenz-Nexus'
   $ModuleName='PsSamsara'
 }
 
@@ -11,6 +10,6 @@ Task Symlink -description "Create a symlink for '$ModuleName' module" {
   Pop-Location
 }
 
-Task Publish -description "Publish module '$ModuleName' to repository '$($Repository.Name)'" {
-  Publish-Module -name $ModuleName -Repository $Repository.Name -NuGetApiKey $NuGetApiKey
+Task Publish -description "Publish module '$ModuleName' to repository '$($RepositoryName)'" {
+  Publish-Module -name $ModuleName -Repository $RepositoryName -NuGetApiKey $NuGetApiKey
 }
