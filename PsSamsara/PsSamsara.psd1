@@ -12,7 +12,7 @@
 RootModule = './PsSamsara.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.0'
+ModuleVersion = '0.1.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -21,10 +21,10 @@ ModuleVersion = '0.0.0'
 GUID = '0161b021-efd3-4a86-bb76-af5412fae260'
 
 # Author of this module
-Author = 'craig'
+Author = 'Craig Buchanan'
 
 # Company or vendor of this module
-CompanyName = 'Craig Buchanan'
+CompanyName = 'Cogniza, Inc.'
 
 # Copyright statement for this module
 Copyright = '(c) Cogniza. All rights reserved.'
@@ -69,7 +69,7 @@ Description = "PowerShell wrapper of Samsara's REST API."
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Get-SamsaraDriver','Get-SamsaraDriverSafetyScore')
+FunctionsToExport = @('Get-SamsaraDriver','Get-SamsaraDriverSafetyScore','Test-SamsaraConnection')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -95,13 +95,13 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('samsara','powershell','pwsh','api')
 
         # A URL to the license for this module.
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/craibuc/PsSamsara'
 
         # A URL to an icon representing this module.
         # IconUri = ''
