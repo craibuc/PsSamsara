@@ -72,18 +72,30 @@ function Get-SamsaraDriver
         }
         Write-Debug "Uri: $Uri"
     
-        $Response = Invoke-WebRequest -Method Get -Uri $Uri -Headers $Headers -Verbose:$False
+        try {
 
-        if ($Response) {
+            $Response = Invoke-WebRequest -Method Get -Uri $Uri -Headers $Headers -Verbose:$False
 
-            # data and pagination
-            $Content = $Response.Content | ConvertFrom-Json
-
-            # next page
-            $Query.after = $Content.pagination.endCursor
+            if ($Response) {
     
-            # return data
-            $Content.data
+                # data and pagination
+                $Content = $Response.Content | ConvertFrom-Json
+    
+                # next page
+                $Query.after = $Content.pagination.endCursor
+        
+                # return data
+                $Content.data
+            }
+                
+        }
+        catch {
+            if ( $_.Exception.Response.StatusCode -eq [System.Net.HttpStatusCode]::NotFound ) {
+                Microsoft.PowerShell.Utility\Write-Warning "NOT FOUND: Samsara Driver - $Id"
+            }
+            else {
+                Write-Error ("ERROR: {0}" -f $_.ErrorDetails.Message)
+            }
         }
     
     } while ( $Content.pagination.hasNextPage -eq $True )
