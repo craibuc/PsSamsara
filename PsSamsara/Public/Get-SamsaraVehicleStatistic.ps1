@@ -59,7 +59,7 @@ function Get-SamsaraVehicleStatistic
     $Query = @{}
     if ($Type) { $Query.types = ($Type -join ',') }
     if ($VehicleId) { $Query.vehicleIds = ($VehicleId -join ',') }
-    if ($Time) { $Query.time = $Time.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssfffZ') }
+    if ($Time) { $Query.time = $Time.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ') }
 
     do {
 
