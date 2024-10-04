@@ -87,6 +87,7 @@ function Set-SamsaraDriver
         
         $Headers =@{
             Authorization='Bearer {0}' -f (ConvertFrom-SecureString -SecureString $Token -AsPlainText)
+            'Content-Type'='application/json'
             Accept='application/json'
         }
     }
