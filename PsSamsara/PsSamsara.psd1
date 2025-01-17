@@ -12,7 +12,7 @@
 RootModule = './PsSamsara.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.3.2'
+ModuleVersion = '0.5.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,12 @@ Description = "PowerShell wrapper of Samsara's REST API."
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Get-SamsaraDriver','Set-SamsaraDriver','Get-SamsaraDriverSafetyScore','Get-SamsaraVehicleStatistic','Test-SamsaraConnection')
+FunctionsToExport = @(
+    'Get-SamsaraDriver','Set-SamsaraDriver','Get-SamsaraDriverSafetyScore'
+    'Get-SamsaraTag'
+    'Get-SamsaraVehicle','Get-SamsaraVehicleStatistic','Get-SamsaraVehicleTrip'
+    'Test-SamsaraConnection'
+)
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
